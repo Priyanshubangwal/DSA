@@ -4,34 +4,15 @@ public:
         int n= needle.size();
         int m= haystack.size();
 
-        int j=0;
-        int i=0;
-        int ans=-1;
-        while(j<m){
-            i=0;
-            int p=-1;
-            int q=j;
-            while(i<n){
-                if(needle[i]==haystack[j]){
-                    if(p==-1){
-                        p=j;
-                    }
-                    i++;
-                    j++;
-                }else{
-                    j=q;
-                    break;
-                }
-            }
+        for(int i=0;i<m;i++){
 
-            if(i>=n){
-                ans=p;
-                break;
+            string ans= haystack.substr(i,n);
+            if(needle==ans){
+                return i;
             }
-            j++;
         }
 
-        return ans;
+        return -1;
 
     }
 };
